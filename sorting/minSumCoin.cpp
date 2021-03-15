@@ -3,21 +3,21 @@
 #define in(arr,n) for(int i=0;i<n;i++) cin>>arr[i];
 #define out(arr,n) for(int i=0;i<n;i++) cout<<arr[i]<<" ";
 #define lp(i,n) for(int i=0;i<n;i++)
-#define MIN 1e-9;
 using namespace std;
 
 void solve(){
   ll n;
   cin>>n;
-  std::vector<ll> value(n);
-  in(value,n);
-  ll sum=value[0],sum_so_far=value[0];
-  for(int i=1;i<n;i++){
-    if(sum>=0) sum+=value[i];
-    else sum=value[i];
-    if(sum_so_far<sum) sum_so_far=sum;
+  vector<ll> coin(n);
+  in(coin,n);
+  sort(coin.begin(),coin.end());
+  ll minSum=1;
+  for(auto x: coin){
+    if(x>minSum) {std::cout << minSum << '\n'; return;}
+    else minSum+=x;
   }
-  std::cout << sum_so_far << '\n';
+  std::cout << minSum << '\n';
+  return;
 }
 
 int main(int argc, char const *argv[]) {
@@ -27,6 +27,6 @@ int main(int argc, char const *argv[]) {
     freopen("in.txt","r",stdin);
     freopen("out.txt","w",stdout);
   #endif
-  solve();
+ solve();
   return 0;
 }

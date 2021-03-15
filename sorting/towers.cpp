@@ -3,21 +3,23 @@
 #define in(arr,n) for(int i=0;i<n;i++) cin>>arr[i];
 #define out(arr,n) for(int i=0;i<n;i++) cout<<arr[i]<<" ";
 #define lp(i,n) for(int i=0;i<n;i++)
-#define MIN 1e-9;
 using namespace std;
 
 void solve(){
-  ll n;
+  int n;
   cin>>n;
-  std::vector<ll> value(n);
-  in(value,n);
-  ll sum=value[0],sum_so_far=value[0];
-  for(int i=1;i<n;i++){
-    if(sum>=0) sum+=value[i];
-    else sum=value[i];
-    if(sum_so_far<sum) sum_so_far=sum;
+  ll k;
+  multiset<ll> towers;
+  for(int i=0;i<n;i++){
+    cin>>k;
+    auto it=towers.upper_bound(k);
+    if(it==towers.end()) towers.insert(k);
+    else{
+      towers.erase(it);
+      towers.insert(k);
+    }
   }
-  std::cout << sum_so_far << '\n';
+  std::cout << towers.size() << '\n';
 }
 
 int main(int argc, char const *argv[]) {

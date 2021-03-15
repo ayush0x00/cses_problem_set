@@ -2,22 +2,30 @@
 #define ll long long
 #define in(arr,n) for(int i=0;i<n;i++) cin>>arr[i];
 #define out(arr,n) for(int i=0;i<n;i++) cout<<arr[i]<<" ";
+#define MAX 1e9
 #define lp(i,n) for(int i=0;i<n;i++)
-#define MIN 1e-9;
 using namespace std;
 
 void solve(){
-  ll n;
-  cin>>n;
-  std::vector<ll> value(n);
-  in(value,n);
-  ll sum=value[0],sum_so_far=value[0];
-  for(int i=1;i<n;i++){
-    if(sum>=0) sum+=value[i];
-    else sum=value[i];
-    if(sum_so_far<sum) sum_so_far=sum;
-  }
-  std::cout << sum_so_far << '\n';
+ ll n;
+ cin>>n;
+ vector<ll>v(n);
+ ll k;
+ map<ll,ll> freq;
+ lp(i,n){
+   cin>>k;
+   v[i]=k; freq.insert({k,-1});
+ }
+ ll max_size=1,start=0;
+ lp(end,n){
+   //if element is not found in freq
+
+   start=max(start,freq[v[end]]+1);
+   //if element is found in freq
+   max_size=max(max_size,end-start+1);
+   freq[v[end]]=end;
+ }
+ std::cout << max_size << '\n';
 }
 
 int main(int argc, char const *argv[]) {
