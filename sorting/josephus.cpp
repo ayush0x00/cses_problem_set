@@ -6,25 +6,25 @@
 using namespace std;
 
 void solve(){
-  ll n;
+  int n;
   cin>>n;
-  vector<ll>v(n);
-  in(v,n);
-  set<ll> result;
-  result.insert(v[0]);
-  for(auto i:v){
-    auto it=result.begin();
-    if(i<(*it)) result.insert(i);
+  std::set<int> v;
+  lp(i,n) v.insert(i+1);
+  int start=0;
+  while(v.size()!=0){
+    auto it=v.begin();
+    start=(start+1)%v.size();
+    advance(it,start);
+    std::cout << *it << " ";
+    v.erase(it);
   }
-  ll max_size=result.size();
-  std::cout << max_size << '\n';
 }
 
 int main(int argc, char const *argv[]) {
   ios_base::sync_with_stdio(0);
   cin.tie(0);
   #ifndef ONLINE_JUDGE
-    freopen("test_input.txt","r",stdin);
+    freopen("in.txt","r",stdin);
     freopen("out.txt","w",stdout);
   #endif
   solve();
