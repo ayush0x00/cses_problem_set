@@ -48,7 +48,6 @@ int main(){
     cin.tie(0);
     // freopen("in.txt","r",stdin);
     // freopen("out.txt","w",stdout);
-
     vector<ll> powerOfTen(19,1);
     for(int i=1;i<=18;i++) powerOfTen[i]=powerOfTen[i-1]*10;
     int queries;
