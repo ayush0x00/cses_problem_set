@@ -60,11 +60,6 @@ int main(){
     vector<long long>dist = dijkstra(1,graph);
     vector<long long>rev_dist = dijkstra(n,rev_graph);
 
-    // for(auto i:dist) cout<<i<<" ";
-    // cout<<"\n";
-    // for(auto i:rev_dist) cout<<i<<" ";
-    // cout<<"\n";
-
     long long ans=INF;
     for(auto e:edges){
         int from = e[0],to=e[1],cost=e[2];

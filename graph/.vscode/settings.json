@@ -3,5 +3,6 @@
     "ios": "cpp",
     "vector": "cpp",
     "iostream": "cpp"
-  }
+  },
+  "liveServer.settings.port": 5501
 }

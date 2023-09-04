@@ -7,12 +7,8 @@ vector<vector<long long>> dijkstra(int src, const vector<vector<pair<int, int>>>
 {
     priority_queue<pair<long long, long long>, vector<pair<long long, long long>>, greater<pair<long long, long long>>> pq;
     pq.push({0, src});
-
-
     vector<vector<long long>> dist(graph.size()+1,vector<long long>(k,INF));
-
     dist[src][0]=0;
-
     while (!pq.empty())
     {
         int from = pq.top().second;
@@ -20,7 +16,7 @@ vector<vector<long long>> dijkstra(int src, const vector<vector<pair<int, int>>>
         pq.pop();
 
         // if(vis[from]) continue;
-        if(dist[from][k-1] < d) continue;
+        if(dist[from][k-1] < d ) continue;
         for(auto nbr:graph[from]){
             int to = nbr.first;
             int cost = nbr.second;
