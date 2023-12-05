@@ -39,7 +39,7 @@ int main()
     int n, r;
     cin >> n;
     parent = vector<int>(n + 1);
-    rankArray = vector<int>(n + 1, 1);
+    rankArray = vector<int>(n + 1, 1); //modified rank
     for (int i = 1; i <= n; i++)
         parent[i] = i;
     cin >> r;
