@@ -1,33 +1,28 @@
-#include<bits/stdc++.h>
-#define ll long long
-#define in(arr,n) for(int i=0;i<n;i++) cin>>arr[i];
-#define out(arr,n) for(int i=0;i<n;i++) cout<<arr[i]<<" ";
+#include <bits/stdc++.h>
 using namespace std;
 
-void solve(ll &a, ll &b){
-    if((a==0 && b==0) || (a==2 && b==1) || (a==1 && b==2)) {std::cout << "YES" << '\n';return;}
-    ll a1=2*b-a;
-    ll a2=2*a-b;
-    if((a1>0&&a1%3==0) && (a2>0 && a2%3==0))std::cout << "YES" << '\n';
-    else std::cout << "NO" << '\n';
-    return;
-}
+int main(){
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
 
+    #ifndef ONLINE_JUDGE
+        freopen("test_input.txt","r",stdin);
+    #endif
 
-int main(int argc, char const *argv[]) {
-  ios_base::sync_with_stdio(0);
-  cin.tie(0);
-  #ifndef ONLINE_JUDGE
-    freopen("in.txt","r",stdin);
-    freopen("out.txt","w",stdout);
-  #endif
-  ll t;
-  cin>>t;
-  while(t--) {
-    ll a,b;
-    cin>>a>>b;
-    solve(a,b);
+    int t;
+    cin>>t;
+    while(t--){
+      int left,right;
+      cin>>left>>right;
+      if(left<right) swap(left,right);
+      if(left>2*right){
+        cout<<"NO\n";
+        continue;
+      }
+      if((left+right)%3==0) cout<<"YES\n";
+      else cout<<"NO\n";
 
-  }
-  return 0;
+    }
+    return 0;
 }

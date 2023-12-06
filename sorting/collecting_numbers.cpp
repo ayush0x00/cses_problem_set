@@ -1,32 +1,37 @@
-#include<bits/stdc++.h>
-#define ll long long
-#define in(arr,n) for(int i=0;i<n;i++) cin>>arr[i];
-#define out(arr,n) for(int i=0;i<n;i++) cout<<arr[i]<<" ";
-#define lp(i,n) for(int i=0;i<n;i++)
+#include <bits/stdc++.h>
 using namespace std;
 
-void solve(){
-  ll n;
-  cin>>n;
-  vector<ll>v(n);
-  in(v,n);
-  set<ll> result;
-  result.insert(v[0]);
-  for(auto i:v){
-    auto it=result.begin();
-    if(i<(*it)) result.insert(i);
+vector<int> parent;
+vector<int> rankArr;
+
+void solve()
+{
+  int n;
+  cin >> n;
+  vector<int> nums(n + 1);
+  int el;
+  for (int i = 0; i < n; i++)
+  {
+    cin >> el;
+    nums[el] = i;
   }
-  ll max_size=result.size();
-  std::cout << max_size << '\n';
+
+  int counter = 1;
+  for (int i = 1; i <= n; i++)
+  {
+    if (nums[i] < nums[i - 1])
+      counter++;
+  }
+  cout << counter << "\n";
 }
 
-int main(int argc, char const *argv[]) {
+int main(int argc, char const *argv[])
+{
   ios_base::sync_with_stdio(0);
   cin.tie(0);
-  #ifndef ONLINE_JUDGE
-    freopen("test_input.txt","r",stdin);
-    freopen("out.txt","w",stdout);
-  #endif
+
+  // freopen("test_input.txt", "r", stdin);
+  // freopen("out.txt", "w", stdout);
   solve();
   return 0;
 }

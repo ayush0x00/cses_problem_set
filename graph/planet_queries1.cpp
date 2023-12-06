@@ -4,7 +4,7 @@ using namespace std;
 int max_l=30;
 
 int back_jump(int n, int d,const vector<vector<int>>&parent){
-    // int a = parent[n][0];
+    
     for(int i=0;i<max_l;i++){
         if(d&(1<<i)) n=parent[n][i];
     }
